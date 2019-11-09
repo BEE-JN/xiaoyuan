@@ -1,17 +1,47 @@
 //app.js
 App({
-  onLaunch: function () {
-    // 展示本地存储能力
-    var logs = qq.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    qq.setStorageSync('logs', logs)
+  onLaunch: function () { // 全局只触发一次，在小程序初始化时
 
     // 登录
-    qq.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+    qq.login({      
+      success(res) {
+        if (res.code) {
+          console.log(res.code)
+          // 发起网络请求
+          qq.request({
+            url: 'https://xiaoyuan.jngcs.top/onlogin',
+            data: {
+              code: res.code
+            },
+            success: res => {
+
+            }
+          })
+        } else {
+            console.log('登录失败！' + res.errMsg)
+        }
       }
     })
+
+    // 验证本地存储，如果有账户密码，则进入主页，否则进入登录界面
+    try {
+      const stuid = qq.getStorageSync('stuid')
+      const password = qq.getStorageSync('password')
+      if (stuid == "" || password == "") {
+        qq.reLaunch({
+          url: './pages/login/login'
+        })
+      } else {
+        this.globalData.stuid = stuid
+        this.globalData.password = password
+        qq.reLaunch({
+          url: './pages/index/index'
+        })
+      }
+    } catch (e) {
+      console.log(e)
+    }
+
     // 获取用户信息
     qq.getSetting({
       success: res => {
@@ -34,6 +64,8 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    stuid: "",
+    password: ""
   }
 })

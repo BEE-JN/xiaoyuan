@@ -1,0 +1,3 @@
+<view id="meContent">
+    <button type="warn" bindtap="clearUserInfo">清除本地用户数据</button>
+</view>
