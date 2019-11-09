@@ -1,25 +1,34 @@
 {
-	"projectid": "1108100302_xiaoyuan",
+	"projectid": "1109929375_xiaoyuan",
 	"setting": {
 		"urlCheck": true,
 		"es6": true,
-		"postcss": true,
+		"postcss": false,
 		"minified": true,
 		"newFeature": true,
-		"autoAudits": false
+		"autoAudits": true,
+		"nodeModules": true,
+		"uploadWithSourceMap": true,
+		"uglifyFileName": true,
+		"remoteDebugLogEnable": false
 	},
 	"qqLibVersion": "1.8.0",
 	"compileType": "miniprogram",
-	"createTime": 1572787183947,
-	"accessTime": 1572787183947,
+	"createTime": 1572879816227,
+	"accessTime": 1572879816227,
 	"packOptions": {
 		"ignore": []
 	},
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
-	"qqappid": "1108100302",
+	"qqappid": "1109929375",
 	"projectname": "xiaoyuan",
+	"scripts": {
+		"beforeCompile": "",
+		"beforePreview": "",
+		"beforeUpload": ""
+	},
 	"condition": {
 		"search": {
 			"current": -1,

@@ -1,0 +1,24 @@
+<view id="loginContent">
+    <view id="inputView">
+        <view id="idinputView" class="inputSingleCell">
+            <view id="idTextView" class="inputTextCell">学号：</view>
+            <view class="inputCoverView">
+                <input class="input" value="{{stuid}}" bindinput="inputId" type="number" />
+            </view>
+        </view>
+        <view id="behindCell"></view>
+        <view id="pwinputView" class="inputSingleCell">
+            <view id="pwTextView" class="inputTextCell">e江南密码：</view>
+            <view class="inputCoverView">
+                <input class="input" value="{{password}}" bindinput="inputPw" password="{{true}}" />
+            </view>
+        </view>
+    </view>
+    <view id="check">
+        <view>记住密码</view>
+        <switch bindchange="rembPw" />
+    </view>
+    <view id="loginView">
+        <button class="loginButton" bindtap="login" type="primary">登录</button>
+    </view>
+</view>
